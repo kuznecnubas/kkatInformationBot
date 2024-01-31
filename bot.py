@@ -10,15 +10,24 @@ contactsButton = telebot.types.KeyboardButton("Контакты")
 phoneButton = telebot.types.KeyboardButton("Номер телефона")
 adressButton = telebot.types.KeyboardButton("Адрес")
 emailButton = telebot.types.KeyboardButton("Email")
+departmentsButton = telebot.types.KeyboardButton("Отделения")
+departmentsIndustrialButton = telebot.types.KeyboardButton("Индустриальное отделение")
+departmentsTechniacalButton = telebot.types.KeyboardButton("Техническое отделение")
+departmentsCorrespondenceButton = telebot.types.KeyboardButton("Заочное отделение")
+departmentsEngineeringButton = telebot.types.KeyboardButton("Машиностроительное отделение")
+departmentsProfessionalButton = telebot.types.KeyboardButton("Профессиональная школа")
 #клавиатуры
 mainKeyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
-mainKeyboard.add(aboutButton, contactsButton)
+mainKeyboard.add(aboutButton, contactsButton, departmentsButton)
 
 aboutKeyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
 aboutKeyboard.add(mainInformationButton, missionOfColledgeButton).add(mainKeyboardButton)
 
 contactsKeyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
 contactsKeyboard.add(phoneButton, adressButton, emailButton).add(mainKeyboardButton)
+
+departmentsKeyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
+departmentsKeyboard.add(departmentsIndustrialButton, departmentsTechniacalButton, departmentsCorrespondenceButton, departmentsEngineeringButton, departmentsProfessionalButton).add(mainKeyboardButton)
 
 
 #хэндлеры
@@ -38,7 +47,23 @@ def unknownCommandReply(message):
     elif message.text == "Контакты":
         bot.reply_to(message, "Как вы желаете связаться с нашим колледжом?", reply_markup=contactsKeyboard)
     elif message.text == "Адрес":
-        bot.send_location(message.chat.id, "53.227123", "63.637152")
+        bot.send_location(message.chat.id, "53.227123", "63.637152", reply_markup=contactsKeyboard)
+    elif message.text == "Номер телефона":
+        bot.reply_to(message, "87142579770", reply_markup=contactsKeyboard)
+    elif message.text == "Email":
+        bot.reply_to(message, "kkat311@mail.ru", reply_markup=contactsKeyboard)
+    elif message.text == "Отделения":
+        bot.reply_to(message, "В колледже есть 5 отделений:\n-Индустриальное отделение\n-Техническое отделение\n-Заочное отделение\n-Машиностроительное отделение\n-Профессиональная школа\n\nПро какое вы хотите узнать?", reply_markup=departmentsKeyboard)
+#    elif message.text == "Отделения":
+#        bot.reply_to(message, "В колледже есть 5 отделений:\n-Индустриальное отделение\n-Техническое отделение\n-Заочное отделение\n-Машиностроительное отделение\n-Профессиональная школа\n\nПро какое вы хотите узнать?", reply_markup=departmentsKeyboard)
+#    elif message.text == "Отделения":
+#        bot.reply_to(message, "В колледже есть 5 отделений:\n-Индустриальное отделение\n-Техническое отделение\n-Заочное отделение\n-Машиностроительное отделение\n-Профессиональная школа\n\nПро какое вы хотите узнать?", reply_markup=departmentsKeyboard)
+#    elif message.text == "Отделения":
+#        bot.reply_to(message, "В колледже есть 5 отделений:\n-Индустриальное отделение\n-Техническое отделение\n-Заочное отделение\n-Машиностроительное отделение\n-Профессиональная школа\n\nПро какое вы хотите узнать?", reply_markup=departmentsKeyboard)
+#    elif message.text == "Отделения":
+#        bot.reply_to(message, "В колледже есть 5 отделений:\n-Индустриальное отделение\n-Техническое отделение\n-Заочное отделение\n-Машиностроительное отделение\n-Профессиональная школа\n\nПро какое вы хотите узнать?", reply_markup=departmentsKeyboard)
+#    elif message.text == "Отделения":
+#        bot.reply_to(message, "В колледже есть 5 отделений:\n-Индустриальное отделение\n-Техническое отделение\n-Заочное отделение\n-Машиностроительное отделение\n-Профессиональная школа\n\nПро какое вы хотите узнать?", reply_markup=departmentsKeyboard)
     else:
         bot.reply_to(message, "Я не знаю этой команды")
 
