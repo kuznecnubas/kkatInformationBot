@@ -65,7 +65,7 @@ def unknownCommandReply(message):
     elif message.text == "Сайт":
         bot.reply_to(message, "https://kkat.edu.kz/", reply_markup=aboutKeyboard)
     elif message.text == "Лицензия":
-        bot.send_document(message.chat.id, "https://kkat.edu.kz/storage/files/%D0%9A%D0%9A%D0%90%D0%A2%20-%D0%9B%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F%20%D0%9D%D0%9E%D0%92%D0%90%D0%AF-%D1%80%D1%83%D1%81.pdf", reply_markup=contactsKeyboard)
+        bot.send_document(message.chat.id, "https://kkat.edu.kz/storage/files/%D0%9A%D0%9A%D0%90%D0%A2%20-%D0%9B%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F%20%D0%9D%D0%9E%D0%92%D0%90%D0%AF-%D1%80%D1%83%D1%81.pdf", reply_markup=aboutKeyboard)
     elif message.text == "Контакты":
         bot.reply_to(message, "Как вы желаете связаться с нашим колледжом?", reply_markup=contactsKeyboard)
     elif message.text == "Адрес":
